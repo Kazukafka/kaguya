@@ -1,0 +1,2 @@
+rootProject.name='Kaguya'
+include ':app'
