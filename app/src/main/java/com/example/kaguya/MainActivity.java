@@ -233,8 +233,8 @@ public class MainActivity<FirebaseDatabase> extends AppCompatActivity {
                     edt1.setText("");
                     Subtract = false;
                     ans.setText((input1 + " - " + input2 ) + " = " + (input1 - input2) + "");
-                    long millis = System.currentTimeMillis();
-                    ts.setText(Long.toString(millis));
+                    //long millis = System.currentTimeMillis();
+                    //ts.setText(Long.toString(millis));
 
                     String finalCalc = (String) ans.getText().toString();
 
@@ -249,8 +249,8 @@ public class MainActivity<FirebaseDatabase> extends AppCompatActivity {
                 if (Multiplication) {
                     Multiplication = false;
                     ans.setText((input1 + " * " + input2 ) + " = " + (input1 * input2) + "");
-                    long millis = System.currentTimeMillis();
-                    ts.setText(Long.toString(millis));
+                    //long millis = System.currentTimeMillis();
+                    //ts.setText(Long.toString(millis));
 
                     String finalCalc = (String) ans.getText().toString();
 
@@ -265,8 +265,8 @@ public class MainActivity<FirebaseDatabase> extends AppCompatActivity {
                 if (Division) {
                     Division = false;
                     ans.setText((input1 + " / " + input2 ) + " = " + (input1 / input2) + "");
-                    long millis = System.currentTimeMillis();
-                    ts.setText(Long.toString(millis));
+                    //long millis = System.currentTimeMillis();
+                    //ts.setText(Long.toString(millis));
 
                     String finalCalc = (String) ans.getText().toString();
 
@@ -281,17 +281,17 @@ public class MainActivity<FirebaseDatabase> extends AppCompatActivity {
                     edt1.setText(Math.pow(input1, input2) + "");
                     mRemainder = false;
                     ans.setText((input1 + " ^ " + input2 ) + " = " + (Math.pow(input1, input2)) + "");
-                    long millis = System.currentTimeMillis();
-                    ts.setText(Long.toString(millis));
+                    //long millis = System.currentTimeMillis();
+                    //ts.setText(Long.toString(millis));
 
 
                     String finalCalc = (String) ans.getText().toString();
 
                     FirebaseFirestore db=FirebaseFirestore.getInstance();
-                    HashMap<String, Object> equations = new HashMap<>();
-                    equations.put("equation", finalCalc );
-                    equations.put("timestamp", FieldValue.serverTimestamp());
-                    db.collection("equations").add(equations);
+                    HashMap<String, Object> equation = new HashMap<>();
+                    equation.put("equation", finalCalc );
+                    equation.put("timestamp", FieldValue.serverTimestamp());
+                    db.collection("eqdb").add(equation);
                 }
             }
         });
